@@ -716,12 +716,17 @@ style gdsii
 # PSD, NSD (PPLUS, NPLUS implants)
 #----------------------------------------------------------------
 
+templayer pmos_active_psd
+	bloat-or allpactivenontap * 180 allnactivetap 0
+	bloat-max allpactivenontap * 180 poly 300
+	maxrect external
+
  layer PSD
 	# PSD covers rppd and righ resistors
 	bloat-all pres,xres poly
 	grow 180
 	bloat-or allpactivetap * 30 allnactivenontap 0 isodiffres 150
-	bloat-or allpactivenontap * 180 allnactivetap 0
+	or pmos_active_psd
 	and-not transhalo
 	and-not varactorarea
 	or sealc
