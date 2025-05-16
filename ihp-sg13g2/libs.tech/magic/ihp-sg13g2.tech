@@ -893,8 +893,8 @@ templayer pmos_active_psd
 
  layer THKOX schottkyarea,varactorarea
 	grow 100
-	or alldiffhv,hvvar,hvpvar
-        bloat-or alldiffhv,hvvar,hvpvar * 185 alldifflv 0
+	or alldiffhvnontap,hvvar,hvpvar
+        bloat-or alldiffhvnontap,hvvar,hvpvar * 270 alldifflv 0
 	grow-min 860
 	bridge 860 860
 	grow	430
