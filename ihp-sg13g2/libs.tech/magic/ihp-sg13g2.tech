@@ -5040,7 +5040,8 @@ variants (),(hrhc),(lrhc),(hrlc),(lrlc)
  device csubcircuit SVaricap *hvvaractor *hvnsd w=w l=l
 
  # Diodes
- device subcircuit dpantenna *pdiode nwell w=w l=l
+ #device subcircuit dpantenna *pdiode nwell p=p a=a
+ device csubcircuit dpantenna *pdiode nwell w=w l=l
  device msubcircuit dantenna *ndiode pwell,space/w w=w l=l
  device subcircuit schottky *schottky *hvnsd nwell error w=w l=l
 
