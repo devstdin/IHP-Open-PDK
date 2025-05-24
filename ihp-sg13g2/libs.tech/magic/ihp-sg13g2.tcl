@@ -54,6 +54,7 @@ namespace eval sg13g2_devstdin {
     dict set ruleset nw_e             0.24      ;# Min. NWell enclosure of NWell tie surrounded entirely by NWell in N+Activ not inside ThickGateOx
     dict set ruleset nw_e1            0.62      ;# Min. NWell enclosure of NWell tie surrounded entirely by NWell in N+Activ inside ThickGateOx
     dict set ruleset nw_c             0.31      ;# Min. NWell enclosure of P+Activ not inside ThickGateOx
+    dict set ruleset nw_d             0.31      ;# Min. NWell space to external N+Activ not inside ThickGateOx
     dict set ruleset nw_f             0.24      ;# Min. NWell space to substrate tie in P+Activ not inside ThickGateOx
     dict set ruleset nw_c1            0.62      ;# Min. NWell enclosure of P+Activ inside ThickGateOx
     dict set ruleset gat_d            0.07      ;# Min. GatPoly space to Activ
@@ -112,11 +113,13 @@ proc sg13g2_devstdin::addtechmenu {framename} {
 	    "magic::gencell sg13g2_devstdin::schottky" pdk1
    magic::add_toolkit_separator	$layoutframe pdk1
 
+   magic::add_toolkit_command $layoutframe "pnpMPA" \
+        "magic::gencell sg13g2_devstdin::pnpmpa" pdk1
 #   magic::add_toolkit_command $layoutframe "NPN" \
 	    "magic::gencell sg13g2_devstdin::npn13g2" pdk1
 #   magic::add_toolkit_command $layoutframe "PNP" \
 	    "magic::gencell sg13g2_devstdin::pnpMPA" pdk1
-#   magic::add_toolkit_separator	$layoutframe pdk1
+   magic::add_toolkit_separator	$layoutframe pdk1
 
    magic::add_toolkit_command $layoutframe "poly resistor - 7 Ohm/sq" \
 	    "magic::gencell sg13g2_devstdin::rsil" pdk1
@@ -197,6 +200,7 @@ source [file dirname [file normalize [info script]]]/device_generators/ihp-sg13g
 source [file dirname [file normalize [info script]]]/device_generators/ihp-sg13g2_fets.tcl
 source [file dirname [file normalize [info script]]]/device_generators/ihp-sg13g2_diodes.tcl
 source [file dirname [file normalize [info script]]]/device_generators/ihp-sg13g2_caps.tcl
+source [file dirname [file normalize [info script]]]/device_generators/ihp-sg13g2_bjt.tcl
 source [file dirname [file normalize [info script]]]/device_generators/ihp-sg13g2_welltie.tcl
 source [file dirname [file normalize [info script]]]/device_generators/ihp-sg13g2_stripes.tcl
 

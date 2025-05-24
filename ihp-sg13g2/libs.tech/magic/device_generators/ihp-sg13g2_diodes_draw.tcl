@@ -16,6 +16,8 @@
 #      distance between devices in y direction (um)
 #  - diode_type:
 #  - diode_contact_type:
+#  - diode_contact_size:
+#  - diode_contact_coverage
 #  - diode_contact_enclosure:
 #  - well_type:
 #  - subdiff_type:
@@ -41,7 +43,7 @@ proc sg13g2_devstdin::diode_device {parameters} {
 
     set box_initial [getbox]
 
-    # Draw the resistor and endcaps
+    # Draw diode and center contact
     box size 0 0
     set box_origin [getbox]
 
@@ -54,10 +56,20 @@ proc sg13g2_devstdin::diode_device {parameters} {
     paint ${diode_type}
     set box_d_core [getbox]
 
-    # draw core contact
+    # scale/draw contact
     box shrink c ${diode_contact_enclosure}um
-    paint ${diode_contact_type}
-    set box_d_core_cont [getbox]
+    set top_cont_w [getboxwidth]
+    set top_cont_h [getboxheight]
+    if {${diode_cont_cover} > 0} {
+        set top_cont_w [* ${top_cont_w} [/ ${diode_cont_cover} 100.0]]
+        set top_cont_h [* ${top_cont_h} [/ ${diode_cont_cover} 100.0]]
+        if {${top_cont_w} < ${diode_contact_size}} { set top_cont_w ${diode_contact_size} }
+        if {${top_cont_h} < ${diode_contact_size}} { set top_cont_h ${diode_contact_size} }
+        setcboxwidth ${top_cont_w}
+        setcboxheight ${top_cont_h}
+        paint ${diode_contact_type}
+        set box_d_core_cont [getbox]
+    }
 
     # draw ring contact
     setbox ${box_d_core}
@@ -87,6 +99,8 @@ proc sg13g2_devstdin::dantenna_draw {parameters} {
         dy                      ${dy} \
         diode_type              ndiode \
         diode_contact_type      ndiodec \
+        diode_contact_size      ${cnt_a} \
+        diode_contact_cover     ${contcov} \
         diode_contact_enclosure ${cnt_c} \
     ]
 
@@ -157,6 +171,8 @@ proc sg13g2_devstdin::dpantenna_draw {parameters} {
         dy                      ${dy} \
         diode_type              pdiode \
         diode_contact_type      pdiodec \
+        diode_contact_size      ${cnt_a} \
+        diode_contact_cover     ${contcov} \
         diode_contact_enclosure ${cnt_c} \
     ]
 
