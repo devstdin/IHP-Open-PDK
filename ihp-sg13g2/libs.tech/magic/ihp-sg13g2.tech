@@ -553,7 +553,7 @@ end
 #-----------------------------------------------------
 
 connect
-  *nwell,*nsd,*hvnsd,dnwell *nwell,*nsd,*hvnsd,dnwell
+  *nwell,*nsd,*hvnsd,dnwell,pnp *nwell,*nsd,*hvnsd,dnwell,pnp
   pwell,*psd,*hvpsd,isosub  pwell,*psd,*hvpsd,isosub
   npn,pbc	npn,pbc
   pbc,*m1	pbc,*m1
