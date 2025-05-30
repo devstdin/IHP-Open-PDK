@@ -329,10 +329,10 @@ proc sg13g2_devstdin::hvnmos_draw {parameters} {
         set guarddict [dict create \
             well_type               pwell \
             subdiff_type            psubdiff \
-            subdiff_distance        [list [* [* ${gat_d} 2] ${guard_distf}] \
-                                          [* [* ${gat_d} 2] ${guard_distf}] \
-                                          [* ${act_b} ${guard_distf}] \
-                                          [* ${act_b}  ${guard_distf}]] \
+            subdiff_distance        [list [* ${m1_e} ${guard_distf}] \
+                                          [* ${m1_e} ${guard_distf}] \
+                                          [* [+ ${tgo_a} ${tgo_b}] ${guard_distf}] \
+                                          [* [+ ${tgo_a} ${tgo_b}] ${guard_distf}]] \
             subdiff_enclose_contact ${cnt_c} \
             well_enclose_subdiff    0 \
             contact_type            psubdiffcont \
@@ -460,10 +460,10 @@ proc sg13g2_devstdin::hvpmos_draw {parameters} {
         set guarddict [dict create \
             well_type               nwell \
             subdiff_type            nsubdiff \
-            subdiff_distance        [list [* [* ${gat_d} 2] ${guard_distf}] \
-                                          [* [* ${gat_d} 2] ${guard_distf}] \
-                                          [* ${act_b} ${guard_distf}] \
-                                          [* ${act_b} ${guard_distf}]] \
+            subdiff_distance        [list [* ${m1_e} ${guard_distf}] \
+                                          [* ${m1_e} ${guard_distf}] \
+                                          [* [+ ${tgo_a} ${tgo_b}] ${guard_distf}] \
+                                          [* [+ ${tgo_a} ${tgo_b}] ${guard_distf}]] \
             subdiff_enclose_contact ${cnt_c} \
             well_enclose_subdiff    ${nw_e1} \
             contact_type            nsubdiffcont \

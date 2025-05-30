@@ -62,6 +62,7 @@ namespace eval sg13g2_devstdin {
     dict set ruleset sal_d            0.20      ;# Min. SalBlock space to unrelated Activ or GatPoly
     dict set ruleset sal_c            0.20      ;# Min. SalBlock extension over Activ or GatPoly
     dict set ruleset m1_c1            0.05      ;# Min. Metal1 endcap enclosure of Cont
+    dict set ruleset m1_e             0.22      ;# Min. space of Metal1 lines if, at least one line is wider than 0.3 µm and the parallel run is more than 1.0 µm
     dict set ruleset act_c            0.23      ;# Min. Activ drain/source extension
     dict set ruleset act_b            0.21      ;# Min. Activ space or notch
     dict set ruleset cnt_d            0.07      ;# Min. GatPoly enclosure of Cont
@@ -77,6 +78,8 @@ namespace eval sg13g2_devstdin {
     dict set ruleset tv1_c            0.10      ;# Min. Metal5 enclosure of TopVia1
     dict set ruleset vn_a             0.19      ;# Min. and max. Via(n) width
     dict set ruleset tm1_a            1.64      ;# Min. TopMetal1 width
+    dict set ruleset tgo_a            0.27      ;# Min. ThickGateOx extension over Activ
+    dict set ruleset tgo_b            0.27      ;# Min. space between ThickGateOx and Activ outside thick gate oxide region
 }
 
 #-----------------------------------------------------
