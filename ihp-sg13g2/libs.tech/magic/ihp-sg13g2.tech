@@ -653,8 +653,13 @@ style gdsii
  templayer diffmaskarea
 	bloat-or isodiffres * 0 *ndiff 130 *psd 200
 
- layer DIFF 	allnactive,allpactive,*schottky,hvisodiffres,*hvvar,hvpvar,sealc
+ templayer tmp_sealdiff sealc,sealv1,sealv2,sealv3,sealv4,sealv5,sealv6
+  and-not diffmaskarea
+  grow 1300
+
+ layer DIFF 	allnactive,allpactive,*schottky,hvisodiffres,*hvvar,hvpvar
 	and-not diffmaskarea
+  or tmp_sealdiff
  	calma 	1 0
 
  layer DIFFPIN
@@ -721,6 +726,10 @@ templayer pmos_active_psd
 	bloat-max allpactivenontap * 180 poly 300
 	maxrect external
 
+templayer tmp_sealpsd sealc,sealv1,sealv2,sealv3,sealv4,sealv5,sealv6
+  and-not diffmaskarea
+  grow 1300
+
  layer PSD
 	# PSD covers rppd and righ resistors
 	bloat-all pres,xres poly
@@ -729,7 +738,7 @@ templayer pmos_active_psd
 	or pmos_active_psd
 	and-not transhalo
 	and-not varactorarea
-	or sealc
+	or tmp_sealpsd
 	# fill catecorner abutments satisfying pSD.a, pSD.b
 	bridge	310 310
 	# and-not NSD
