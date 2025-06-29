@@ -158,8 +158,12 @@ proc sg13g2_devstdin::addtechmenu {framename} {
 	    "sg13g2_devstdin::via6_draw" pdk1
     magic::add_toolkit_separator $layoutframe pdk1
 
-   magic::add_toolkit_command $layoutframe "Metal Stripes" \
+    magic::add_toolkit_command $layoutframe "Metal Stripes" \
         "sg13g2_devstdin::stripes_draw" pdk1
+    magic::add_toolkit_separator $layoutframe pdk1
+
+    magic::add_toolkit_command $layoutframe "Seal Ring" \
+        "sg13g2_devstdin::seal_draw" pdk1
 
    # Additional DRC style for routing only---add this to the DRC menu
    ${layoutframe}.titlebar.mbuttons.drc.toolmenu add command -label "DRC Routing" -command {drc style drc(routing)}
@@ -206,6 +210,7 @@ source [file dirname [file normalize [info script]]]/device_generators/ihp-sg13g
 source [file dirname [file normalize [info script]]]/device_generators/ihp-sg13g2_bjt.tcl
 source [file dirname [file normalize [info script]]]/device_generators/ihp-sg13g2_welltie.tcl
 source [file dirname [file normalize [info script]]]/device_generators/ihp-sg13g2_stripes.tcl
+source [file dirname [file normalize [info script]]]/device_generators/ihp-sg13g2_seal.tcl
 
 #-------------------------------------------------------------------
 # General-purpose routines for the PDK script in all technologies
