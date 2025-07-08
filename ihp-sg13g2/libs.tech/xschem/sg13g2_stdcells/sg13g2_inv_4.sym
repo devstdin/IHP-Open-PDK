@@ -1,5 +1,4 @@
-
-v {xschem version=3.1.0 file_version=1.0
+v {xschem version=3.4.6 file_version=1.2
 * Copyright 2023 IHP PDK Authors
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,10 +13,9 @@ v {xschem version=3.1.0 file_version=1.0
 * See the License for the specific language governing permissions and
 * limitations under the License.
 }
-
 G {}
 K {type=primitive
-format="@name @@A @VDD @VSS @@Y @prefix\\\\inv_4"
+format="@name @@Y @@A @VDD @VSS @prefix\\\\inv_4"
 template="name=x1 VDD=VDD VSS=VSS prefix=sg13g2_ "
 extra="VDD VSS prefix"
 highlight=true}
