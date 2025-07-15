@@ -5136,9 +5136,9 @@ variants (),(hrhc),(lrhc),(hrlc),(lrlc)
 
  # Resistors
 
- device rsubcircuit rsil nres *poly w=w l=l
- device rsubcircuit rppd pres *poly w=w l=l
- device rsubcircuit rhigh xres *poly w=w l=l
+ device rsubcircuit rsil nres *poly pwell,space/w w=w l=l
+ device rsubcircuit rppd pres *poly pwell,space/w w=w l=l
+ device rsubcircuit rhigh xres *poly pwell,space/w w=w l=l
 
  # Metal resistors.  There are no device models for these, so they
  # are extracted as ideal (non-semiconductor) resistors.
