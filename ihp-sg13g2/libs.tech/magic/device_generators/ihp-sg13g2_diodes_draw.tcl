@@ -60,9 +60,9 @@ proc sg13g2_devstdin::diode_device {parameters} {
     box shrink c ${diode_contact_enclosure}um
     set top_cont_w [getboxwidth]
     set top_cont_h [getboxheight]
-    if {${diode_cont_cover} > 0} {
-        set top_cont_w [* ${top_cont_w} [/ ${diode_cont_cover} 100.0]]
-        set top_cont_h [* ${top_cont_h} [/ ${diode_cont_cover} 100.0]]
+    if {${diode_contact_cover} > 0} {
+        set top_cont_w [* ${top_cont_w} [/ ${diode_contact_cover} 100.0]]
+        set top_cont_h [* ${top_cont_h} [/ ${diode_contact_cover} 100.0]]
         if {${top_cont_w} < ${diode_contact_size}} { set top_cont_w ${diode_contact_size} }
         if {${top_cont_h} < ${diode_contact_size}} { set top_cont_h ${diode_contact_size} }
         setcboxwidth ${top_cont_w}
